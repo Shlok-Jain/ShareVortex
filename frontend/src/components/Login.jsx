@@ -7,17 +7,16 @@ import '/node_modules/notification-npm/index.css'
 import AppContext from '../context/Context';
 import Spinner from 'react-bootstrap/Spinner';
 import {Transition} from './Transition';
-import { useLocation } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 export const Login = () => {
-    const location = useLocation();
     document.title = 'Login | ShareVortex';
     const context = useContext(AppContext);
     const { showLoading } = context;
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [disabled, setDisabled] = useState(false);
-
+    const history = useNavigate();
     // document.getElementById('login_spinner').style.display = 'none';
 
     const handleSubmit = async (e) => {
@@ -53,6 +52,7 @@ export const Login = () => {
                 })
                 notification.show();
                 localStorage.setItem('authtoken', data.authtoken);
+                history('/');
             }
         })
     }
@@ -70,8 +70,8 @@ export const Login = () => {
         document.getElementById('login_text').style.display = 'block';
     }
     return (
-        <Transition location={location}>
-        <div className='signup-form'>
+        <Transition>
+        <div className='signup-form' style={{marginTop:'70px'}}>
             <Form>
                 <div className="signup-title">Login</div>
                 <Form.Group className="mb-3" controlId="formBasicEmail">

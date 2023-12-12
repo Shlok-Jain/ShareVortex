@@ -15,7 +15,8 @@ const AppState = (props) => {
     }
 
     const fetchUser = async () => {
-        fetch('http://localhost:5000/auth/fetchuser',{
+        document.getElementById('loading').style.display = 'block';
+        await fetch('http://localhost:5000/auth/fetchuser',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json',
@@ -27,7 +28,7 @@ const AppState = (props) => {
             if(!json.success){
                 const notification = new NotificationJS({
                     message: json.error,
-                    type: 'success',
+                    type: 'error',
                     duration: 5000,
                     theme: 'dark',
                 })
@@ -37,6 +38,7 @@ const AppState = (props) => {
                 setuser(json.user);
             }
         })
+        document.getElementById('loading').style.display = 'none';
     }
     
     return (

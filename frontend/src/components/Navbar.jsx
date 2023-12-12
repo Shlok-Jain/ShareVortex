@@ -7,11 +7,10 @@ import { Link } from 'react-router-dom';
 export const Navbar = () => {
   const context = useContext(AppContext)
   const { user,showLoading } = context;
-
   return (
     <nav>
       <div className="icon"><Link onClick={()=>showLoading()} to="/">ShareVortex</Link></div>
-      {JSON.parse(user).name ? (
+      {user.name ? (
         <>
           {/* // content to showif user is logged in */}
           <div className="dp">dp</div>

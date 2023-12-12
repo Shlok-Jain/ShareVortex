@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../modules/User')
 const jwt = require('jsonwebtoken');
+require('dotenv').config()
 const JWT_SECRET = process.env.JWT_SECRET
 const fetchuser = require('../middlewares/fetchuser')
 
@@ -39,20 +40,20 @@ router.post('/signup',async(req,res)=>{
 router.post('/login',async(req,res)=>{
     const {email,password} = req.body;
     if(!email||!password){
-        return res.json({'error':'Please fill all the fields','success':false})
+        return res.json({'error':'Please fill all the fields','success':false}).status(401)
     }
     const search = await User.find({"email":email})
     if(search.length==0){
-        return res.json({'error':'No such email found','success':false})
+        return res.json({'error':'No such email found','success':false}).status(401)
     }
     else{
         if(search[0].password == password){
             const data = {user:{id: search[0].id}}
             const authtoken = jwt.sign(data,JWT_SECRET)
-            return res.json({'success':true,'authtoken':authtoken})
+            return res.json({'success':true,'authtoken':authtoken}).status(200)
         }
         else{
-            return res.json({'error':'Incorrect password','success':false})
+            return res.json({'error':'Incorrect password','success':false}).status(401)
         }
     }
 })
@@ -65,7 +66,7 @@ router.post('/fetchuser',fetchuser,async (req,res)=>{
         return res.status(200).json({'user':user,'success':true})
     }
     catch(error){
-        res.status(500).json({error:"Some error occured",success:false})
+        return res.status(500).json({error:"Some error occured",success:false})
     }
 })
 
