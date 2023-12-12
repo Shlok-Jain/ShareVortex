@@ -6,8 +6,12 @@ import NotificationJS from 'notification-npm'
 import '/node_modules/notification-npm/index.css'
 import AppContext from '../context/Context';
 import Spinner from 'react-bootstrap/esm/Spinner';
+import { Transition } from './Transition';
+import { useLocation } from 'react-router-dom';
 
 export const Signup = () => {
+  const location = useLocation();
+  document.title = 'Signup | ShareVortex';
   const context = useContext(AppContext)
   const { showLoading } = context;
   const [name, setName] = useState('');
@@ -65,6 +69,7 @@ export const Signup = () => {
     document.getElementById('signup_text').style.display = 'block';
   }
   return (
+    <Transition location={location}>
     <div className='signup-form'>
       <Form>
         <div className="signup-title">Create an account</div>
@@ -98,5 +103,6 @@ export const Signup = () => {
         </Form.Group>
       </Form>
     </div>
+    </Transition>
   )
 }

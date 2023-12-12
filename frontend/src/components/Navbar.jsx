@@ -10,7 +10,7 @@ export const Navbar = () => {
 
   return (
     <nav>
-      <div className="icon">ShareVortex</div>
+      <div className="icon"><Link onClick={()=>showLoading()} to="/">ShareVortex</Link></div>
       {JSON.parse(user).name ? (
         <>
           {/* // content to showif user is logged in */}
@@ -27,6 +27,3 @@ export const Navbar = () => {
     </nav>
   )
 }
-
-
-// TODO: Add Browser router
