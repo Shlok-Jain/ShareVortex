@@ -1,0 +1,71 @@
+#navigator{
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25%;
+    max-width: 220px;
+    background-color: #414040;
+    color: #fff;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateX(-100%);
+}
+.container-nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.navigate-elem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    margin: 1px;
+    font-size: 23px;
+    padding: 5px;
+    border-radius: 5px;
+    width: calc(100% - 10px);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.navigate-elem:hover{
+    background-color: #333;
+    color: #fff;
+}
+.navigate-icon{
+    margin-right: 20px;
+    width: 20%;
+    display: flex;
+    justify-content: right;
+    align-items: flex-start;
+    margin-top: 5px;
+    height: 100%;
+}
+.navigate-text{
+    display: flex;
+    width: 80%;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}

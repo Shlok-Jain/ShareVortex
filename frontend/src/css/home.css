@@ -1,5 +1,5 @@
 .home-main{
-    min-height: 100vh;
+    min-height: calc(100vh - 70px);
     display: flex;
     flex-direction: column; 
     justify-content: center;
@@ -9,11 +9,17 @@
     background-image: linear-gradient( 111.4deg,  rgba(238,113,113,1) 1%, rgba(246,215,148,1) 58% );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 72px;
     font-weight: 900;
 }
 .home-main>p{
     font-size: 26px;
     font-weight: 700;
     color: #2af59aaf;
+}
+.home-page{
+    width: 75%;
+    position: absolute;
+    right: 0;
+    color: white;
+    text-align: center;
 }
