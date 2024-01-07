@@ -6,7 +6,6 @@ import useDidMountEffect from '../useDidMountEffect'
 
 const AppState = (props) => {
     const [user, setuser] = useState("{}");
-    const [showNavigator, setshowNavigator] = useState(false)
     const loading_ref = useRef(null);
 
     const showLoading = () => {
@@ -15,15 +14,6 @@ const AppState = (props) => {
             loading_ref.current.complete();
         }, 500);
     }
-
-    useEffect(()=>{
-        if(!user.name){
-            setshowNavigator(false);
-        }
-        else{
-            setshowNavigator(true);
-        }
-    },[user])
 
     const fetchUser = async () => {
         document.getElementById('loading').style.display = 'flex';
@@ -75,7 +65,7 @@ const AppState = (props) => {
     }
     
     return (
-        <AppContext.Provider value={{user,showNavigator,setuser,loading_ref,showLoading,fetchUser}}>
+        <AppContext.Provider value={{user,setuser,loading_ref,showLoading,fetchUser}}>
         {props.children}
         </AppContext.Provider>
     )

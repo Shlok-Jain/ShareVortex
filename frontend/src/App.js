@@ -30,7 +30,7 @@ const Animated = () => {
 
 function App() {
   const context = useContext(AppContext)
-  const { loading_ref,showNavigator } = context;
+  const { loading_ref } = context;
   
   return (
     <BrowserRouter>

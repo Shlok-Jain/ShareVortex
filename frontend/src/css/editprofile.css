@@ -1,8 +1,15 @@
 .editprofile-page{
-    width: 75%;
-    margin: 0 auto;
+    width: 70vw;
+    /* margin: 0 auto; */
     position: absolute;
-    right: 0;
-    text-align: center;
+    left: 27vw;
+    /* text-align: center; */
+    /* margin-left: auto; */
     color: white;
+}
+.editprofile-form{
+    margin-top: 30px;
+    font-size: 20px;
+    max-width: 50vw;
+    
 }

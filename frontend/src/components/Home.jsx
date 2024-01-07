@@ -21,7 +21,7 @@ export const Home = () => {
   },[showNavigator])
   return (
     <Transition>
-      <div ref={ref} className='home-page' style={{marginTop:'70px'}}>
+      <div ref={ref} className='home-page' style={{marginTop:'70px',transition:'all 325ms'}}>
       {user.name?<h1>Welcome {user.name}</h1>:
       <div className='home-main'>
       <h1 >ShareVortex</h1>

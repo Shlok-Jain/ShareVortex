@@ -6,17 +6,7 @@ import AppContext from '../context/Context'
 
 export const Navigator = () => {
   const context = useContext(AppContext)
-  const { user,setuser, showLoading,showNavigator } = context;
-
-  const ref = useRef(null)
-  useEffect(()=>{
-    if(showNavigator){
-      ref.current.style.animation = 'slideIn 0.5s ease-in-out forwards'
-    }
-    else{
-      ref.current.style.animation = 'slideOut 0.5s ease-in-out forwards'
-    }
-  },[showNavigator])
+  const { user,setuser, showLoading } = context;
 
   const history = useNavigate()
   const logout = ()=>{
@@ -25,7 +15,7 @@ export const Navigator = () => {
     history('/')
   }
   return (
-    <div id="navigator" ref={ref}>
+    <div id="navigator">
       <div className="container-nav">
         <Link to='/' onClick={() => showLoading()} className="navigate-elem">
           <div className="navigate-icon">

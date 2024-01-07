@@ -11,7 +11,7 @@
     height: 100vh;
     align-items: center;
     justify-content: space-between;
-    transform: translateX(-100%);
+    /* transform: translateX(-100%); */
 }
 .container-nav{
     display: flex;
